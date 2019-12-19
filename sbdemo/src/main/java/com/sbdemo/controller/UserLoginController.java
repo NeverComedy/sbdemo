@@ -62,7 +62,6 @@ public class UserLoginController {
         User user = userServiceImpl.userLogin(username,password);
         if(user != null){
             request.getSession().setAttribute("username",user.getUsername());
-            //System.out.print("getUsername:【"+user.getUsername()+"】************888888*************");
             model.addAttribute("user",user);
             return "Index";
         }
