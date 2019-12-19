@@ -29,6 +29,7 @@ public class UserLoginController {
     public String userLogin(){
         return "/user/UserLoginPage";
     }
+
     //访问注册页面
     @RequestMapping(value = {"/registerPage"})
     public String userRegister(){
@@ -47,7 +48,7 @@ public class UserLoginController {
         Object requsername = request.getSession().getAttribute("username");
         String username = (String) requsername;
         User user = userServiceImpl.userInfo(username);
-        System.out.println("用户信息:"+user.toString());
+        //System.out.println("用户信息:"+user.toString());
         if(user != null){
             model.addAttribute("user",user);
             return "/user/UserInfoPage";
@@ -70,9 +71,10 @@ public class UserLoginController {
 
     //用户注册
     @RequestMapping(value ={"/userRegiser"})
-    public String userRegister(User user){
+    public String userRegister(User user,HttpServletRequest request){
         int u = userServiceImpl.userRegister(user);
         if(u > 0){
+            request.getSession().setAttribute("username",user.getUsername());
             return "Index";
         }
         return "Error";
