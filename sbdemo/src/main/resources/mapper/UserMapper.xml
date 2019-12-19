@@ -11,10 +11,10 @@
     <insert id="userRegister" parameterType="User" >
         INSERT INTO user (username,password,sex,age) VALUES(#{username},#{password},#{sex},#{age})
     </insert>
-    
+    <!--用户注册-->
     <insert id="register" parameterType="User">
-        insert into user (id, username, password,sex, age)
-        values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        insert into user (username, password,sex, age)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
         #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})
     </insert>
 
@@ -22,5 +22,10 @@
     <update id="userUpdateInfo" parameterType="User">
         UPDATE  user set  sex = #{sex}, age = #{age} WHERE username = #{username}
     </update>
+
+    <!--用户信息查询-->
+    <select id="userInfo"  resultType="com.sbdemo.entity.User" parameterType="User">
+        select username , sex , age from user where username = #{username}
+    </select>
 
 </mapper>

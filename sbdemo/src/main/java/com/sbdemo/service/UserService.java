@@ -8,8 +8,10 @@ public interface UserService {
     User userLogin(String username, String password);
 
     //新用户注册
-    User register(User user);
+    int userRegister(User user);
 
     //用户基本信息修改
     int userUpdateInfo(String sex,int age,String username);
+
+    User userInfo(String username);
 }

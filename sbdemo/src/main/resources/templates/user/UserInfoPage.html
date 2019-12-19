@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息展示</title>
+</head>
+<body>
+    <h2>用户信息展示界面</h2>
+    <p>账号:<span th:text="${user.username}"></span></p>
+    <p>性别:<span th:text="${user.sex}"></span></p>
+    <p>年龄:<span th:text="${user.age}"></span></p>
+    <a href="/user/updatePage">用户信息修改</a>
+    <hr>
+    <a href="/user/indexPage">返回主页面</a>
+</body>
+</html>

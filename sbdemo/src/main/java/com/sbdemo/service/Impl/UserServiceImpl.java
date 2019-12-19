@@ -6,6 +6,8 @@ import com.sbdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -20,13 +22,18 @@ public class UserServiceImpl implements UserService {
     }
 
     //注册用户
-    public User register(User user){
-        System.out.println("User"+user);
+    public int userRegister(User user){
+        //System.out.println("User"+user);
         return userMapper.register(user);
     }
 
     //用户基本信息修改
     public int userUpdateInfo(String sex,int age,String username){
         return userMapper.userUpdateInfo(sex,age,username);
+    }
+
+    //用户信息查询
+    public User userInfo(String username){
+        return userMapper.userInfo(username);
     }
 }

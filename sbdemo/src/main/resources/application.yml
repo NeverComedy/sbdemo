@@ -8,6 +8,7 @@ spring:
         username: root    #mysql连接用户名
         password: root    #mysql连接密码
         driver-class-name: com.mysql.jdbc.Driver     #数据库驱动
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml      #注意：一定要对应mapper映射xml文件的所在路径
   type-aliases-package: com.sbdemo.entity       # 注意修改：对应实体类的路径
